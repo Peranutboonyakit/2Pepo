@@ -25,6 +25,7 @@ export const PROJECTS = [
     technologies: ["NextJS", "Typescript", "TailwindCSS", "Framer-motion"],
     vercel: "https://fitmegym.vercel.app/",
     github: "https://github.com/Peranutboonyakit/fitmegym",
+    status: "done",
   },
   {
     title: "Nearly Restaurant",
@@ -32,6 +33,26 @@ export const PROJECTS = [
     technologies: ["ReactJS", "Typescript", "Lodash", "TailwindCSS"],
     vercel: "https://nearplace.vercel.app/",
     github: "https://github.com/Peranutboonyakit/nearplace",
+    status: "done",
+  },
+  {
+    title: "Sim of Racer",
+    img: "/images/simracer.png",
+    technologies: [
+      "Vite",
+      "ReactJS",
+      "Typescript",
+      "Redux-toolkit",
+      "Lodash",
+      "TailwindCSS",
+      "Framer-motion",
+      "NodeJs",
+      "ExpressJs",
+      "Mongodb",
+    ],
+    vercel: "https://sim-frontend-9fco.onrender.com/",
+    github: "https://github.com/Peranutboonyakit/simer",
+    status: "inprogress",
   },
 ];
 

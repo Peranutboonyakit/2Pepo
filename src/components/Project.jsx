@@ -2,6 +2,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { PROJECTS } from "../../public/constants/constants";
+import classNames from "classnames";
 
 const Project = () => {
   const containerVariant = {
@@ -27,10 +28,7 @@ const Project = () => {
 
   return (
     <div className="pb-24">
-      <h2
-        className="my-20 text-center text-4xl bg-gradient-to-b from-purple-500 to-neutral-500
-            bg-clip-text text-transparent"
-      >
+      <h2 className="my-20 text-4xl text-center text-transparent bg-gradient-to-b from-purple-500 to-neutral-500 bg-clip-text">
         Projects
       </h2>
 
@@ -38,16 +36,45 @@ const Project = () => {
         {PROJECTS.map((item, i) => (
           <div
             key={i}
-            className="mb-8 flex flex-wrap lg:justify-center lg:gap-10 group"
+            className="flex flex-wrap mb-8 lg:justify-center lg:gap-10 group"
           >
-            <div className="w-full lg:w-1/2 relative">
-              <div className="absolute top-0 left-0 bg-black opacity-70 z-10 w-full h-full group-hover:hidden transition-all" />
-              <img src={item.img} alt={item.img} className="mb-6 rounded" />
+            <div className="relative w-full lg:w-1/2">
+              <div className="absolute top-0 left-0 z-10 w-full h-full transition-all bg-black opacity-70 group-hover:hidden" />
+              <img
+                src={item.img}
+                alt={item.img}
+                className="h-full mb-6 rounded"
+              />
             </div>
             <div className="w-full max-w-xl lg:w-1/2">
               <h6 className="mb-4 font-extrabold text-purple-100">
                 {item.title}
               </h6>
+              <div className="flex items-center mb-4 space-x-2">
+                <div
+                  className={classNames(
+                    "w-2 h-2 rounded-full",
+                    {
+                      "bg-green-500": item.status === "done",
+                    },
+                    {
+                      "bg-orange-500": item.status === "inprogress",
+                    }
+                  )}
+                />
+                <p
+                  className={classNames(
+                    {
+                      "text-green-500": item.status === "done",
+                    },
+                    {
+                      "text-orange-500": item.status === "inprogress",
+                    }
+                  )}
+                >
+                  {item.status}
+                </p>
+              </div>
               <motion.div
                 variants={containerVariant}
                 initial="hidden"
@@ -58,7 +85,7 @@ const Project = () => {
                   <motion.span
                     variants={items}
                     key={ii}
-                    className="rounded bg-neutral-900 p-2 text-sm font-medium text-purple-500"
+                    className="p-2 text-sm font-medium text-purple-500 rounded bg-neutral-900"
                   >
                     {v}
                   </motion.span>
